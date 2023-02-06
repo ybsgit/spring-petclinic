@@ -11,6 +11,7 @@ stages:
           targetType: 'inline'
           script: |
             # Write your commands here
+            java -version
             mkdir /opt/java17
             cd ~
             wget https://download.oracle.com/java/17/archive/jdk-17.0.6_linux-aarch64_bin.tar.gz
