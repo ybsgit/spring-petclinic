@@ -14,14 +14,14 @@ stages:
             java -version
             mkdir /opt/java17
             cd ~
-            wget https://download.oracle.com/java/17/archive/jdk-17.0.6_linux-x64_bin.deb
+            wget https://download.oracle.com/java/17/archive/jdk-17.0.6_linux-x64_bin.tar.gz
             pwd
       - task: JavaToolInstaller@0
         inputs:
           versionSpec: '17'
           jdkArchitectureOption: 'x64'
           jdkSourceOption: 'LocalDirectory'
-          jdkFile: '~/jdk*'
+          jdkFile: '~/jdk-17.0.6_linux-x64_bin.tar.gz'
           jdkDestinationDirectory: '/opt/java17/'
           cleanDestinationDirectory: true
       - task: Maven@4
