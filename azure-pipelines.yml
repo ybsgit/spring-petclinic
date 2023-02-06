@@ -22,6 +22,7 @@ stages:
           targetType: 'inline'
           script: |
             # Write your commands here
+            free -mh
             pwd 
             java -version
             mkdir /opt/java17
