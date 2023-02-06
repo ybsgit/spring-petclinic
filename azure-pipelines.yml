@@ -21,7 +21,7 @@ stages:
           versionSpec: '17'
           jdkArchitectureOption: 'x64'
           jdkSourceOption: 'LocalDirectory'
-          jdkFile: '~/jdk-17.0.6_linux-x64_bin.tar.gz'
+          jdkFile: 'jdk-17.0.6_linux-x64_bin.tar.gz'
           jdkDestinationDirectory: '/opt/java17/'
           cleanDestinationDirectory: true
       - task: Maven@4
