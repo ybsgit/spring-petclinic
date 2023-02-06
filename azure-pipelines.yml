@@ -77,6 +77,22 @@ stages:
             - download: current
               artifact: war
             - script: echo initialize, cleanup, backup, install certs
+            - task: Bash@3
+              inputs:
+                targetType: 'inline'
+                script: |
+                  # Write your commands here
+                  mkdir /opt/java17
+                  wget https://download.oracle.com/java/17/archive/jdk-17.0.6_linux-x64_bin.tar.gz
+                  pwd
+            - task: JavaToolInstaller@0
+              inputs:
+                versionSpec: '17'
+                jdkArchitectureOption: 'x64'
+                jdkSourceOption: 'LocalDirectory'
+                jdkFile: 'jdk-17.0.6_linux-x64_bin.tar.gz'
+                jdkDestinationDirectory: '/opt/java17/'
+                cleanDestinationDirectory: true
           deploy:
             steps:
             - task: Bash@3
