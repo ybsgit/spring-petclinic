@@ -6,6 +6,23 @@ stages:
   jobs:
   - job: Build
     steps:
+      - task: Bash@3
+        inputs:
+          targetType: 'inline'
+          script: |
+            # Write your commands here
+            mkdir /opt/java17
+            cd ~
+            wget https://download.oracle.com/java/17/archive/jdk-17.0.6_linux-aarch64_bin.rpm
+            pwd
+      - task: JavaToolInstaller@0
+        inputs:
+          versionSpec: '17'
+          jdkArchitectureOption: 'x64'
+          jdkSourceOption: 'LocalDirectory'
+          jdkFile: '~/jdk*'
+          jdkDestinationDirectory: '/opt/java17/'
+          cleanDestinationDirectory: true
       - task: Maven@4
         inputs:
           mavenPomFile: 'pom.xml'
