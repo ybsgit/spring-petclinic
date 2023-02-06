@@ -46,6 +46,13 @@ stages:
           mavenAuthenticateFeed: false
           effectivePomSkip: false
           sonarQubeRunAnalysis: false
+      - task: Bash@3
+        inputs:
+          targetType: 'inline'
+          script: |
+            # Write your commands here
+            
+            find . -name *.war
       - task: CopyFiles@2
         inputs:
           Contents: '**/**/*.war'
