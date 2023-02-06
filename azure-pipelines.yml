@@ -17,10 +17,29 @@ stages:
             maven
           path: $(MAVEN_CACHE_FOLDER)
         displayName: Cache Maven local repo
+      - task: Bash@3
+        inputs:
+          targetType: 'inline'
+          script: |
+            # Write your commands here
+            free -mh
+            pwd 
+            java -version
+            mkdir /opt/java17
+            wget https://download.oracle.com/java/17/archive/jdk-17.0.6_linux-x64_bin.tar.gz
+            pwd
+      - task: JavaToolInstaller@0
+        inputs:
+          versionSpec: '17'
+          jdkArchitectureOption: 'x64'
+          jdkSourceOption: 'LocalDirectory'
+          jdkFile: 'jdk-17.0.6_linux-x64_bin.tar.gz'
+          jdkDestinationDirectory: '/opt/java17/'
+          cleanDestinationDirectory: true
       - task: Maven@4
         inputs:
           mavenPomFile: 'pom.xml'
-          options: '-DargLine="-Xmx3096m" $(MAVEN_OPTS)'
+          options: '-DargLine="-Xmx4096m" $(MAVEN_OPTS)'
           publishJUnitResults: false
           javaHomeOption: 'JDKVersion'
           mavenVersionOption: 'Default'
