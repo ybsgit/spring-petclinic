@@ -91,7 +91,7 @@ stages:
                 jdkArchitectureOption: 'x64'
                 jdkSourceOption: 'LocalDirectory'
                 jdkFile: 'jdk-17.0.6_linux-x64_bin.tar.gz'
-                jdkDestinationDirectory: '/opt/java17/'
+                jdkDestinationDirectory: 'opt/java17/'
                 cleanDestinationDirectory: true
           deploy:
             steps:
