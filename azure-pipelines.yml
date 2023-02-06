@@ -27,6 +27,7 @@ stages:
       - task: Maven@4
         inputs:
           mavenPomFile: 'pom.xml'
+          options: '-Xmx1024m'
           publishJUnitResults: false
           javaHomeOption: 'JDKVersion'
           mavenVersionOption: 'Default'
