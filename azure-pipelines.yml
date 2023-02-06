@@ -39,10 +39,10 @@ stages:
       - task: Maven@4
         inputs:
           mavenPomFile: 'pom.xml'
-          options: '-DargLine="-Xmx8096m" $(MAVEN_OPTS)'
           publishJUnitResults: false
           javaHomeOption: 'JDKVersion'
           mavenVersionOption: 'Default'
+          mavenOptions: '-DargLine="-Xmx8096m" $(MAVEN_OPTS)'
           mavenAuthenticateFeed: false
           effectivePomSkip: false
           sonarQubeRunAnalysis: false
