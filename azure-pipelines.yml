@@ -38,7 +38,7 @@ stages:
       - task: Maven@4
         inputs:
           mavenPomFile: 'pom.xml'
-          options: '-DargLine="-Xmx3096m" $(MAVEN_OPTS)'
+          options: '-DargLine="-Xmx6096m" $(MAVEN_OPTS)'
           publishJUnitResults: false
           javaHomeOption: 'JDKVersion'
           mavenVersionOption: 'Default'
